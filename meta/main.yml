@@ -1,0 +1,14 @@
+galaxy_info:
+  author: digimokan
+  description: "Configure system clock, time, and time zone"
+  license: "MIT"
+  min_ansible_version: 2.5
+  platforms:
+    - name: Archlinux
+      versions:
+        - all
+  galaxy_tags:
+    - archlinux
+    - time
+    - timezone
+
