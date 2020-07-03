@@ -58,6 +58,8 @@ Configure system clock, time, and time zone.
        - name: "Configure system clock, time, and time zone"
          include_role:
            name: config-time
+         vars:
+           config_time_zone: "Canada/Yukon"
    ```
 
 ## Role Options
