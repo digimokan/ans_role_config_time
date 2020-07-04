@@ -1,14 +1,14 @@
 - name: "Call out to geo-IP API to determine timezone based on IP addr location"
   # See https://wiki.archlinux.org/index.php/System_time#Setting_based_on_geolocation
-  block:
-    - name: "Call out to geo-IP API with a timezone request"
-      uri:
-        url: https://ipapi.co/timezone
-        return_content: yes
-      register: geo_ip_timezone
-    - name: "Replace the existing timezone var with the geo-IP timezone"
-      set_fact:
-        config_time_zone: geo_ip_timezone.content
+  uri:
+    url: https://ipapi.co/timezone
+    return_content: yes
+  register: geo_ip_timezone
+  when: config_time_zone == 'auto'
+
+- name: "Replace the existing timezone var with the geo-IP timezone"
+  set_fact:
+    config_time_zone: geo_ip_timezone.content
   when: config_time_zone == 'auto'
 
 - name: "Set the system time zone to '{{ config_time_zone }}'"
