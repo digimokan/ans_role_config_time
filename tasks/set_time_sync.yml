@@ -1,4 +1,4 @@
-- name: "Set the list of primary internet NTP servers in {{ config_time_timesyncd_conf_file }}"
+- name: "Set systemd-timesyncd primary NTP servers in {{ config_time_timesyncd_conf_file }}"
   lineinfile:
     path: "{{ config_time_timesyncd_conf_file }}"
     regexp: >-
@@ -9,7 +9,7 @@
   become: true
   become_user: root
 
-- name: "Set the list of fallback internet NTP servers in {{ config_time_timesyncd_conf_file }}"
+- name: "Set systemd-timesyncd fallback NTP servers in {{ config_time_timesyncd_conf_file }}"
   lineinfile:
     path: "{{ config_time_timesyncd_conf_file }}"
     regexp: >-
@@ -20,9 +20,11 @@
   become: true
   become_user: root
 
-# - name: "Enable continuous sync of system time to internet NTP server(s)"
-#   timezone:
-#     name: "{{ config_time_zone }}"
-#   become: true
-#   become_user: root
+- name: "Enable and start systemd-timesyncd"
+  service:
+    name: systemd-timesyncd
+    state: started
+    enabled: yes
+  become: true
+  become_user: root
 
