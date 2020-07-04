@@ -1,12 +1,12 @@
 - name: "Call out to geo-IP API to determine timezone based on IP addr location"
   # See https://wiki.archlinux.org/index.php/System_time#Setting_based_on_geolocation
   block:
-    - name: "Send GET request to geo-IP API to retrieve timezone string"
+    - name: "Send GET request to internet geo-IP API to retrieve tz string"
       uri:
         url: "{{ config_time_geo_ip_uri }}"
         return_content: yes
       register: geo_ip_tz
-    - name: "Define tz-name-string to geo-IP-retrieved timezone string"
+    - name: "Define tz-name-string to geo-IP-retrieved tz string"
       set_fact:
         tz: "{{ geo_ip_tz.content }}"
   when: config_time_zone == 'auto'
