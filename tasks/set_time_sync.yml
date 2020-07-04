@@ -6,6 +6,7 @@
     line: >-
       NTP={{ config_time_primary_ntp_servers }}
     state: present
+  notify: "restart-systemd-timesyncd"
   become: true
   become_user: root
 
@@ -17,10 +18,11 @@
     line: >-
       FallbackNTP={{ config_time_fallback_ntp_servers }}
     state: present
+  notify: "restart-systemd-timesyncd"
   become: true
   become_user: root
 
-- name: "Enable and start systemd-timesyncd"
+- name: "Start and enable systemd-timesyncd"
   service:
     name: systemd-timesyncd
     state: started

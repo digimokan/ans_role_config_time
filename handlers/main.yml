@@ -1,0 +1,8 @@
+- name: "Restart systemd-timesyncd"
+  service:
+    name: systemd-timesyncd
+    state: restarted
+  become: true
+  become_user: root
+  listen: "restart-systemd-timesyncd"
+
