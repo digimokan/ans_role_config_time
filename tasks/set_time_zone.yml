@@ -1,0 +1,6 @@
+- name: "Set the system time zone to '{{ config_time_zone }}'"
+  timezone:
+    name: "{{ config_time_zone }}"
+  become: true
+  become_user: root
+

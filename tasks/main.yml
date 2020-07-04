@@ -1,3 +1,7 @@
 - name: "Set hardware clock"
   include_tasks: set_hw_clock.yml
 
+- name: "Set time zone"
+  include_tasks: set_time_zone.yml
+  when: config_time_zone is defined
+

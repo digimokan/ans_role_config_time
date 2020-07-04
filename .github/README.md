@@ -59,14 +59,20 @@ Configure system clock, time, and time zone.
          include_role:
            name: config-time
          vars:
-           config_time_zone: "Canada/Yukon"
+           config_time_zone: "America/Vancouver"
    ```
 
 ## Role Options
 
-See the role `defaults` file for full listing:
+See the role `defaults` file, for overridable vars:
 
   * [defaults/main.yml](../defaults/main.yml)
+
+Define these _optional_ vars for the role:
+
+  * `config_time_zone`: set the system time zone
+    (see [tz database time zones](https://en.wikipedia.org/wiki/List_of_tz_database_time_zones)
+    for complete list)
 
 ## Contributing
 
