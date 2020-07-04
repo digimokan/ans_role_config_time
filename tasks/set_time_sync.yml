@@ -1,0 +1,16 @@
+- name: "Set the list of primary internet NTP servers in {{ config_time_timesyncd_conf_file }}"
+  lineinfile:
+    path: "{{ config_time_timesyncd_conf_file }}"
+    regexp: >-
+      ^#?(NTP|SystemNTPServers)=
+    line: >-
+      SystemNTPServers={{ config_time_primary_ntp_servers }}
+    state: present
+    validate: timedatectl show-timesync --property=SystemNTPServers --value | grep '^{{ config_time_primary_ntp_servers }}$'
+
+# - name: "Enable continuous sync of system time to internet NTP server(s)"
+#   timezone:
+#     name: "{{ config_time_zone }}"
+#   become: true
+#   become_user: root
+

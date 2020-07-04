@@ -1,6 +1,10 @@
 - name: "Set hardware clock"
   include_tasks: set_hw_clock.yml
 
+- name: "Enable continuous system time sync"
+  include_tasks: set_time_sync.yml
+  when: config_time_enable_sync
+
 - name: "Set time zone"
   include_tasks: set_time_zone.yml
   when: config_time_zone is defined

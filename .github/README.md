@@ -18,10 +18,10 @@ Configure system clock, time, and time zone.
 
 * Set system [_hardware clock_](https://wiki.archlinux.org/index.php/System_time#Hardware_clock)
   to UTC.
-* Enable continuous system time synchronization via
+* Optionally, enable continuous system time synchronization via
   [_systemd timesyncd_](https://wiki.archlinux.org/index.php/Systemd-timesyncd#Configuration)
   and [_systemd timedatectl_](https://wiki.archlinux.org/index.php/Systemd-timesyncd#Usage).
-* Set local [time zone](https://wiki.archlinux.org/index.php/System_time#Time_zone).
+* Optionally, set local [time zone](https://wiki.archlinux.org/index.php/System_time#Time_zone).
 
 ## Supported Operating Systems
 
