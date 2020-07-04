@@ -3,20 +3,20 @@
   uri:
     url: https://ipapi.co/timezone
     return_content: yes
-  register: geo_ip_timezone
+  register: geo_tz
   when: config_time_zone == 'auto'
 
-- name: "Replace the existing timezone var with the geo-IP timezone"
-  set_fact:
-    config_time_zone: geo_ip_timezone.content
-  when: config_time_zone == 'auto'
+# - name: "Replace the existing timezone var with the geo-IP timezone"
+#   set_fact:
+#     config_time_zone: geo_ip_timezone.content
+#   when: config_time_zone == 'auto'
 
-- name: "Set the system time zone to '{{ config_time_zone }}'"
+- name: "Set the system time zone to '{{ tz }}'"
   timezone:
-    name: "{{ config_time_zone }}"
+    name: "{{ tz }}"
   become: true
   become_user: root
-  # vars:
-  #   time_zone: "{{ config_time_zone if geo_ip_timezone is not defined else geo_ip_timezone.content }}"
+  vars:
+    tz: "{{ config_time_zone if geo_tz is not defined else geo_tz.content }}"
 
 
