@@ -9,3 +9,6 @@
   include_tasks: set_time_zone.yml
   when: config_time_zone is defined
 
+- name: "Execute any role handler that was notified"
+  meta: flush_handlers
+
