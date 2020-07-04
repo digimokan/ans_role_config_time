@@ -6,6 +6,19 @@
     line: >-
       NTP={{ config_time_primary_ntp_servers }}
     state: present
+    become: true
+    become_user: root
+
+- name: "Set the list of fallback internet NTP servers in {{ config_time_timesyncd_conf_file }}"
+  lineinfile:
+    path: "{{ config_time_timesyncd_conf_file }}"
+    regexp: >-
+      ^#?FallbackNTP=
+    line: >-
+      FallbackNTP={{ config_time_fallback_ntp_servers }}
+    state: present
+    become: true
+    become_user: root
 
 # - name: "Enable continuous sync of system time to internet NTP server(s)"
 #   timezone:
