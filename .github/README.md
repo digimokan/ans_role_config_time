@@ -74,6 +74,9 @@ Define these _optional_ vars for the role:
     (see [tz database time zones](https://en.wikipedia.org/wiki/List_of_tz_database_time_zones)
     for complete list)
 
+    _NOTE: This var may be set to 'auto' instead of a time zone. The script will
+           then call out to a geo-IP API to determine the time zone._
+
 ## Contributing
 
 * Feel free to report a bug or propose a feature by opening a new
