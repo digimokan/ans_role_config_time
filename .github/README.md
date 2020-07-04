@@ -1,6 +1,6 @@
 # ans-role-config-time
 
-Configure system clock, time, and time zone.
+Ansible role to configure system clock, time, and time zone.
 
 [![Release](https://img.shields.io/github/release/digimokan/ans-role-config-time.svg?label=release)](https://github.com/digimokan/ans-role-config-time/releases/latest "Latest Release Notes")
 [![License](https://img.shields.io/badge/license-MIT-blue.svg?label=license)](LICENSE.md "Project License")
