@@ -11,7 +11,7 @@
         tz: "{{ geo_ip_tz.content }}"
   when: config_time_zone == 'auto'
 
-- name: "Define tz-name-string to user-provided tz '{{ config_time_zone }}'"
+- name: "Define tz-name-string to config_time_zone var '{{ config_time_zone }}'"
   set_fact:
     tz: "{{ config_time_zone }}"
   when: config_time_zone != 'auto'
