@@ -3,11 +3,11 @@
 
 - name: "Enable continuous system time sync"
   include_tasks: set_time_sync.yml
-  when: config_time_enable_sync
+  when: enable_continuous_sync_to_ntp_servers
 
 - name: "Set time zone"
   include_tasks: set_time_zone.yml
-  when: config_time_zone is defined
+  when: time_zone_tz_name is defined
 
 - name: "Execute any role handler that was notified"
   meta: flush_handlers
