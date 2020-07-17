@@ -12,5 +12,5 @@ fallback_ntp_servers: "0.arch.pool.ntp.org 1.arch.pool.ntp.org 2.arch.pool.ntp.o
 timesyncd_conf_filepath: "/etc/systemd/timesyncd.conf"
 
 # geo-IP API uri to retrieve timezone string (if config_time_zone def to 'auto')
-geo_ip_uri: "https://ipapi.co/timezone"
+geo_ip_uri: "http://ip-api.com/csv/?fields=timezone"
 
