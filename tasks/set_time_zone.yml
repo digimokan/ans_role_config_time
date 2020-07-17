@@ -8,7 +8,7 @@
       register: geo_ip_tz
     - name: "Define tz-name-string to geo-IP-retrieved tz string"
       set_fact:
-        tz: "{{ geo_ip_tz.content }}"
+        tz: "{{ geo_ip_tz.content | trim }}"
   when: time_zone_tz_name == 'auto'
 
 - name: "Define tz-name-string to time_zone_tz_name var '{{ time_zone_tz_name }}'"
