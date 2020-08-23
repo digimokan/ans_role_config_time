@@ -10,7 +10,7 @@ Ansible role to configure system clock, time, and time zone.
 * [Purpose](#purpose)
 * [Supported Operating Systems](#supported-operating-systems)
 * [Quick Start](#quick-start)
-    * [Load Role Via `ansible-galaxy` Command](#load-role-via-ansible-galaxy-command)
+    * [Use From Playbook](#use-from-playbook)
 * [Role Options](#role-options)
 * [Contributing](#contributing)
 
@@ -29,7 +29,7 @@ Ansible role to configure system clock, time, and time zone.
 
 ## Quick Start
 
-### Load Role Via `ansible-galaxy` Command
+### Use From Playbook
 
 1. Create `requirements.yml` in ansible project root, and add this content:
 
