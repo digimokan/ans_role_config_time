@@ -1,8 +1,8 @@
-# ans-role-config-time
+# ans_role_config_time
 
 Ansible role to configure system clock, time, and time zone.
 
-[![Release](https://img.shields.io/github/release/digimokan/ans-role-config-time.svg?label=release)](https://github.com/digimokan/ans-role-config-time/releases/latest "Latest Release Notes")
+[![Release](https://img.shields.io/github/release/digimokan/ans_role_config_time.svg?label=release)](https://github.com/digimokan/ans_role_config_time/releases/latest "Latest Release Notes")
 [![License](https://img.shields.io/badge/license-MIT-blue.svg?label=license)](LICENSE.md "Project License")
 
 ## Table Of Contents
@@ -35,9 +35,7 @@ Ansible role to configure system clock, time, and time zone.
 
    ```yaml
    # requirements.yml
-   - src: https://github.com/digimokan/ans-role-config-time
-     version: master
-     name: config-time
+   - src: https://github.com/digimokan/ans_role_config_time
    ```
 
 2. From the project root directory, install/download the role:
@@ -57,7 +55,7 @@ Ansible role to configure system clock, time, and time zone.
      tasks:
        - name: "Configure system clock, time, and time zone"
          include_role:
-           name: config-time
+           name: ans_role_config_time
          vars:
            time_zone_tz_name: "America/Vancouver"
    ```
@@ -81,7 +79,7 @@ Define these _optional_ vars for the role:
 ## Contributing
 
 * Feel free to report a bug or propose a feature by opening a new
-  [Issue](https://github.com/digimokan/ans-role-config-time/issues).
+  [Issue](https://github.com/digimokan/ans_role_config_time/issues).
 * Follow the project's [Contributing](CONTRIBUTING.md) guidelines.
 * Respect the project's [Code Of Conduct](CODE_OF_CONDUCT.md).
 
