@@ -14,6 +14,9 @@ timesyncd_conf_filepath: "/etc/systemd/timesyncd.conf"
 # geo-IP API uri to retrieve timezone string (if config_time_zone def to 'auto')
 geo_ip_uri: "http://ip-api.com/csv/?fields=timezone"
 
-# set to "auto" touse geo-IP, or "America/Vancouver" etc to specify manually
+# The system time zone.
+# Set to "auto" to call out to geo-IP API to determine tz.
+# Set to "America/Vancouver" etc to specify tz manually.
+# See https://en.wikipedia.org/wiki/List_of_tz_database_time_zones.
 time_zone_tz_name: "auto"
 
