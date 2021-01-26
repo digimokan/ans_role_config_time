@@ -1,5 +1,5 @@
 - name: "Set systemd-timesyncd primary NTP servers in {{ timesyncd_conf_filepath }}"
-  lineinfile:
+  ansible.builtin.lineinfile:
     path: "{{ timesyncd_conf_filepath }}"
     regexp: >-
       ^#?NTP=
@@ -11,7 +11,7 @@
   become_user: root
 
 - name: "Set systemd-timesyncd fallback NTP servers in {{ timesyncd_conf_filepath }}"
-  lineinfile:
+  ansible.builtin.lineinfile:
     path: "{{ timesyncd_conf_filepath }}"
     regexp: >-
       ^#?FallbackNTP=
@@ -23,7 +23,7 @@
   become_user: root
 
 - name: "Start and enable systemd-timesyncd"
-  service:
+  ansible.builtin.service:
     name: systemd-timesyncd
     state: started
     enabled: yes

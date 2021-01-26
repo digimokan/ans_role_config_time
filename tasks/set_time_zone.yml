@@ -2,22 +2,22 @@
   # See https://wiki.archlinux.org/index.php/System_time#Setting_based_on_geolocation
   block:
     - name: "Send GET request to internet geo-IP API to retrieve tz string"
-      uri:
+      ansible.builtin.uri:
         url: "{{ geo_ip_uri }}"
         return_content: yes
       register: geo_ip_tz
     - name: "Define tz-name-string to geo-IP-retrieved tz string"
-      set_fact:
+      ansible.builtin.set_fact:
         tz: "{{ geo_ip_tz.content | trim }}"
   when: time_zone_tz_name == 'auto'
 
 - name: "Define tz-name-string to time_zone_tz_name var '{{ time_zone_tz_name }}'"
-  set_fact:
+  ansible.builtin.set_fact:
     tz: "{{ time_zone_tz_name }}"
   when: time_zone_tz_name != 'auto'
 
 - name: "Set the system time zone to tz-name-string '{{ tz }}'"
-  timezone:
+  community.general.timezone:
     name: "{{ tz }}"
   become: true
   become_user: root

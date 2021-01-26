@@ -1,14 +1,14 @@
 - name: "Set hardware clock"
-  include_tasks: set_hw_clock.yml
+  ansible.builtin.include_tasks: set_hw_clock.yml
 
 - name: "Enable continuous system time sync"
-  include_tasks: set_time_sync.yml
+  ansible.builtin.include_tasks: set_time_sync.yml
   when: enable_continuous_sync_to_ntp_servers
 
 - name: "Set time zone"
-  include_tasks: set_time_zone.yml
+  ansible.builtin.include_tasks: set_time_zone.yml
   when: time_zone_tz_name is defined
 
 - name: "Execute any role handler that was notified"
-  meta: flush_handlers
+  ansible.builtin.meta: flush_handlers
 

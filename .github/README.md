@@ -54,7 +54,7 @@ Ansible role to configure system clock, time, and time zone.
      connection: local
      tasks:
        - name: "Configure system clock, time, and time zone"
-         include_role:
+         ansible.builtin.include_role:
            name: ans_role_config_time
          vars:
            time_zone_tz_name: "America/Vancouver"
