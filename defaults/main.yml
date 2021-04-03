@@ -1,17 +1,17 @@
 # enable continuous time-sync to public NTP servers (via systemd)
 enable_continuous_sync_to_ntp_servers: true
 
-# primary/fallback NTP servers (if config_time_enable_sync enabled)
+# primary/fallback NTP servers (if enable_continuous_sync_to_ntp_servers enabled)
 # Note: NTP servers are classified in hierarchy.
 #   - Description: https://wiki.archlinux.org/index.php/Network_Time_Protocol_daemon#Connection_to_NTP_servers
 #   - Server List: https://www.ntppool.org/en/
 primary_ntp_servers: "0.pool.ntp.org 1.pool.ntp.org 2.pool.ntp.org 3.pool.ntp.org"
 fallback_ntp_servers: "0.arch.pool.ntp.org 1.arch.pool.ntp.org 2.arch.pool.ntp.org 3.arch.pool.ntp.org"
 
-# config file for NTP server list (if config_time_enable_sync is enabled)
-timesyncd_conf_filepath: "/etc/systemd/timesyncd.conf"
+# config file for NTP server list (if enable_continuous_sync_to_ntp_servers is enabled)
+timesyncd_conf_filepath: "/etc/systemd/timesyncd.conf.d/ansible.conf"
 
-# geo-IP API uri to retrieve timezone string (if config_time_zone def to 'auto')
+# geo-IP API uri to retrieve timezone string (if time_zone_tz_name def to 'auto')
 geo_ip_uri: "http://ip-api.com/csv/?fields=timezone"
 
 # The system time zone.
