@@ -1,0 +1,12 @@
+# See https://wiki.archlinux.org/index.php/System_time#Setting_based_on_geolocation
+#
+- name: "Send GET request to internet geo-IP API to retrieve tz string"
+  ansible.builtin.uri:
+    url: "{{ geo_ip_uri }}"
+    return_content: yes
+  register: geo_ip_tz
+
+- name: "Define tz-name-string to geo-IP-retrieved tz string"
+  ansible.builtin.set_fact:
+    tz: "{{ geo_ip_tz.content | trim }}"
+

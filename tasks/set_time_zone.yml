@@ -1,14 +1,10 @@
 - name: "Call out to {{ geo_ip_uri }} to determine timezone based on IP addr location"
-  # See https://wiki.archlinux.org/index.php/System_time#Setting_based_on_geolocation
   block:
-    - name: "Send GET request to internet geo-IP API to retrieve tz string"
-      ansible.builtin.uri:
-        url: "{{ geo_ip_uri }}"
-        return_content: yes
-      register: geo_ip_tz
-    - name: "Define tz-name-string to geo-IP-retrieved tz string"
-      ansible.builtin.set_fact:
-        tz: "{{ geo_ip_tz.content | trim }}"
+    - name: "Set 'tz' fact by calling out to geo IP"
+      ansible.builtin.include_tasks: func/set_tz_from_geo_ip.yml
+  rescue:
+    - name: "SECOND TRY - Set 'tz' fact by calling out to geo IP"
+      ansible.builtin.include_tasks: func/set_tz_from_geo_ip.yml
   when: time_zone_tz_name == 'auto'
 
 - name: "Define tz-name-string to time_zone_tz_name var '{{ time_zone_tz_name }}'"
