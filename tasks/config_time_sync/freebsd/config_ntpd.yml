@@ -11,10 +11,11 @@
 
 - name: "Set active NTP server list in {{ ntp_conf_filepath }}"
   ansible.builtin.blockinfile:
+    # NOTE: iburst option enables faster initial sync
     path: "{{ ntp_conf_filepath }}"
     insertafter: >-
       ^.?pool 0.freebsd.pool.ntp.org.*$
-    block: "{{ primary_ntp_servers | join('\n') }}"
+    block: "{{ primary_ntp_servers | map('regex_replace', '^(.*)$', 'pool \1 iburst') | join('\n') }}"
     marker: "# {mark} ANSIBLE MANAGED BLOCK: {{ ntp server list }}"
     create: no
     state: present
