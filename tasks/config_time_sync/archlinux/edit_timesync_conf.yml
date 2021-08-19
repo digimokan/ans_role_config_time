@@ -1,0 +1,13 @@
+- name: "Edit systemd timesyncd.conf setting: {{ description }}"
+  ansible.builtin.blockinfile:
+    path: "{{ timesyncd_conf_filepath }}"
+    insertafter: >-
+      ^\[Time\]$
+    block: "{{ setting_line }}"
+    marker: "# {mark} ANSIBLE MANAGED BLOCK: {{ description }}"
+    create: no
+    state: present
+  become: true
+  become_user: root
+  notify: "restart-systemd-timesyncd"
+

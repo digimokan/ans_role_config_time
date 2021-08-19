@@ -13,7 +13,7 @@
 - name: "Create initial timesynd config file '{{ timesyncd_conf_filepath }}'"
   ansible.builtin.template:
     dest: "{{ timesyncd_conf_filepath }}"
-    src: "timesyncd.j2"
+    src: "archlinux/timesyncd.j2"
     owner: 'root'
     group: 'root'
     mode: '644'
@@ -22,22 +22,14 @@
   become_user: root
 
 - name: "Set systemd-timesyncd primary NTP servers"
-  ansible.builtin.include_tasks: func/edit_timesync_conf.yml
+  ansible.builtin.include_tasks: edit_timesync_conf.yml
   vars:
     description: "primary NTP servers"
     setting_line: "NTP={{ primary_ntp_servers }}"
 
 - name: "Set systemd-timesyncd fallback NTP servers"
-  ansible.builtin.include_tasks: func/edit_timesync_conf.yml
+  ansible.builtin.include_tasks: edit_timesync_conf.yml
   vars:
     description: "fallback NTP servers"
     setting_line: "FallbackNTP={{ fallback_ntp_servers }}"
-
-- name: "Start and enable systemd-timesyncd"
-  ansible.builtin.service:
-    name: systemd-timesyncd
-    state: started
-    enabled: yes
-  become: true
-  become_user: root
 

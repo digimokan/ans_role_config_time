@@ -9,9 +9,6 @@ enable_continuous_sync_to_ntp_servers: true
 primary_ntp_servers: "0.us.pool.ntp.org 1.us.pool.ntp.org 2.us.pool.ntp.org 3.us.pool.ntp.org"
 fallback_ntp_servers: "0.pool.ntp.org 1.pool.ntp.org 2.pool.ntp.org 3.pool.ntp.org"
 
-# config file for NTP server list (if enable_continuous_sync_to_ntp_servers is enabled)
-timesyncd_conf_filepath: "/etc/systemd/timesyncd.conf.d/ansible.conf"
-
 # geo-IP API uri to retrieve timezone string (if time_zone_tz_name def to 'auto')
 geo_ip_uri: "http://ip-api.com/csv/?fields=timezone"
 

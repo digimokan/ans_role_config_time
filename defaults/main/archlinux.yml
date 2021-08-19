@@ -1,0 +1,3 @@
+# config file for NTP server list (if enable_continuous_sync_to_ntp_servers is enabled)
+timesyncd_conf_filepath: "/etc/systemd/timesyncd.conf.d/ansible.conf"
+
