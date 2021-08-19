@@ -25,11 +25,11 @@
   ansible.builtin.include_tasks: edit_timesync_conf.yml
   vars:
     description: "primary NTP servers"
-    setting_line: "NTP={{ primary_ntp_servers }}"
+    setting_line: "NTP={{ primary_ntp_servers | join(' ') }}"
 
 - name: "Set systemd-timesyncd fallback NTP servers"
   ansible.builtin.include_tasks: edit_timesync_conf.yml
   vars:
     description: "fallback NTP servers"
-    setting_line: "FallbackNTP={{ fallback_ntp_servers }}"
+    setting_line: "FallbackNTP={{ fallback_ntp_servers | join(' ') }}"
 
