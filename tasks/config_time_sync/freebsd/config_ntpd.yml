@@ -1,5 +1,5 @@
 - name: "Comment out default FreeBSD NTP pool setting in {{ ntp_conf_filepath }}"
-    lineinfile:
+  ansible.builtin.lineinfile:
     path: "{{ ntp_conf_filepath }}"
     regexp: >-
       ^.?pool 0.freebsd.pool.ntp.org(.*)$
