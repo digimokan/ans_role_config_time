@@ -1,0 +1,4 @@
+- name: "Configure hardware clock for Arch Linux"
+  ansible.builtin.include_tasks: archlinux/main.yml
+  when: ansible_os_family == "Archlinux"
+

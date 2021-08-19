@@ -1,5 +1,5 @@
-- name: "Set hardware clock"
-  ansible.builtin.include_tasks: set_hw_clock.yml
+- name: "Configure the hardware clock"
+  ansible.builtin.include_tasks: config_hw_clock/main.yml
 
 - name: "Enable continuous system time sync"
   ansible.builtin.include_tasks: set_time_sync.yml
