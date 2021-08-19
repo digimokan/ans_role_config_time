@@ -6,8 +6,7 @@
   when: enable_continuous_sync_to_ntp_servers
 
 - name: "Set time zone"
-  ansible.builtin.include_tasks: set_time_zone.yml
-  when: time_zone_tz_name is defined
+  ansible.builtin.include_tasks: config_time_zone/main.yml
 
 - name: "Execute any role handler that was notified"
   ansible.builtin.meta: flush_handlers

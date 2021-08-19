@@ -1,10 +1,10 @@
 - name: "Call out to {{ geo_ip_uri }} to determine timezone based on IP addr location"
   block:
     - name: "Set 'tz' fact by calling out to geo IP"
-      ansible.builtin.include_tasks: func/set_tz_from_geo_ip.yml
+      ansible.builtin.include_tasks: set_tz_from_geo_ip.yml
   rescue:
     - name: "SECOND TRY - Set 'tz' fact by calling out to geo IP"
-      ansible.builtin.include_tasks: func/set_tz_from_geo_ip.yml
+      ansible.builtin.include_tasks: set_tz_from_geo_ip.yml
   when: time_zone_tz_name == 'auto'
 
 - name: "Define tz-name-string to time_zone_tz_name var '{{ time_zone_tz_name }}'"

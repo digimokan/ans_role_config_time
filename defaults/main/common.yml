@@ -17,7 +17,7 @@ geo_ip_uri: "http://ip-api.com/csv/?fields=timezone"
 
 # The system time zone.
 # Set to "auto" to call out to geo-IP API to determine tz.
-# Set to "America/Vancouver" etc to specify tz manually.
+# Set to e.g. "America/Vancouver" to specify tz manually.
 # See https://en.wikipedia.org/wiki/List_of_tz_database_time_zones.
 time_zone_tz_name: "auto"
 
