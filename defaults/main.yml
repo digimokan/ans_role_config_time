@@ -5,8 +5,9 @@ enable_continuous_sync_to_ntp_servers: true
 # Note: NTP servers are classified in hierarchy.
 #   - Description: https://wiki.archlinux.org/index.php/Network_Time_Protocol_daemon#Connection_to_NTP_servers
 #   - Server List: https://www.ntppool.org/en/
-primary_ntp_servers: "0.pool.ntp.org 1.pool.ntp.org 2.pool.ntp.org 3.pool.ntp.org"
-fallback_ntp_servers: "0.arch.pool.ntp.org 1.arch.pool.ntp.org 2.arch.pool.ntp.org 3.arch.pool.ntp.org"
+# Note: Prefer Tier 3 (country-specific servers), per M. W. Lucas
+primary_ntp_servers: "0.us.pool.ntp.org 1.us.pool.ntp.org 2.us.pool.ntp.org 3.us.pool.ntp.org"
+fallback_ntp_servers: "0.pool.ntp.org 1.pool.ntp.org 2.pool.ntp.org 3.pool.ntp.org"
 
 # config file for NTP server list (if enable_continuous_sync_to_ntp_servers is enabled)
 timesyncd_conf_filepath: "/etc/systemd/timesyncd.conf.d/ansible.conf"
