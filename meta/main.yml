@@ -9,6 +9,10 @@ galaxy_info:
         - all
   galaxy_tags:
     - archlinux
+    - freebsd
     - time
     - timezone
+    - ntp
+    - timesyncd
+    - ntpd
 

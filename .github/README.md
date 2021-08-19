@@ -25,7 +25,8 @@ Ansible role to configure system clock, time, and time zone.
 
 ## Supported Operating Systems
 
-* Arch Linux.
+* Arch Linux
+* FreeBSD
 
 ## Quick Start
 
