@@ -3,8 +3,8 @@ timesyncd_conf_filepath: "/etc/systemd/timesyncd.conf.d/ansible.conf"
 
 # fallback NTP servers (if enable_continuous_sync_to_ntp_servers enabled)
 fallback_ntp_servers:
-  - "0.pool.ntp.org"
-  - "1.pool.ntp.org"
-  - "2.pool.ntp.org"
-  - "3.pool.ntp.org"
+  - "0.arch.pool.ntp.org"
+  - "1.arch.pool.ntp.org"
+  - "2.arch.pool.ntp.org"
+  - "3.arch.pool.ntp.org"
 

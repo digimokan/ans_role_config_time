@@ -1,0 +1,22 @@
+- name: "Configure ntpd settings"
+  ansible.builtin.include_tasks: config_ntpd.yml
+  when: enable_continuous_sync_to_ntp_servers
+
+- name: "Enable ntpd service to start at boot"
+  community.general.sysrc:
+    path: "{{ rc_conf_filepath }}"
+    name: ntpd_enable
+    value: "{{ 'YES' if enable_continuous_sync_to_ntp_servers else 'NO' }}"
+    state: present
+  become: true
+  become_user: root
+
+- name: "Set ntpd service for initial, immediate force-time-sync at boot"
+  community.general.sysrc:
+    path: "{{ rc_conf_filepath }}"
+    name: ntpd_sync_on_start
+    value: "{{ 'YES' if enable_continuous_sync_to_ntp_servers else 'NO' }}"
+    state: present
+  become: true
+  become_user: root
+

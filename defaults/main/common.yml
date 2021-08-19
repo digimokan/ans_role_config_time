@@ -4,13 +4,14 @@ enable_continuous_sync_to_ntp_servers: true
 # primary NTP servers (if enable_continuous_sync_to_ntp_servers enabled)
 # Note: NTP servers are classified in hierarchy.
 #   - Description: https://wiki.archlinux.org/index.php/Network_Time_Protocol_daemon#Connection_to_NTP_servers
-#   - Server List: https://www.ntppool.org/en/
-# Note: Prefer Tier 3 (country-specific servers), per M. W. Lucas
+# Note: best practice to use multiple x.pool.ntp.org, and specify with 'pool'
+#   - https://www.ntppool.org/zone
+#   - https://serverfault.com/questions/701371/ntp-conf-pool-vs-server-directives
 primary_ntp_servers:
-  - "0.us.pool.ntp.org"
-  - "1.us.pool.ntp.org"
-  - "2.us.pool.ntp.org"
-  - "3.us.pool.ntp.org"
+  - "0.pool.ntp.org"
+  - "1.pool.ntp.org"
+  - "2.pool.ntp.org"
+  - "3.pool.ntp.org"
 
 # geo-IP API uri to retrieve timezone string (if time_zone_tz_name def to 'auto')
 geo_ip_uri: "http://ip-api.com/csv/?fields=timezone"

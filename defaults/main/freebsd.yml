@@ -1,0 +1,6 @@
+# config file for NTP server list (if enable_continuous_sync_to_ntp_servers is enabled)
+ntp_conf_filepath: "/etc/ntp.conf"
+
+# config file for host info, network info, and services to start at boot
+rc_conf_filepath: "/etc/rc.conf"
+
