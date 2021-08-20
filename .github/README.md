@@ -65,7 +65,7 @@ Ansible role to configure system clock, time, and time zone.
 
 See the role `defaults` file, for overridable vars:
 
-  * [defaults/main.yml](../defaults/main/)
+  * [defaults](../defaults/main/)
 
 ## Contributing
 
