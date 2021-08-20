@@ -6,3 +6,11 @@
   become_user: root
   listen: "restart-systemd-timesyncd"
 
+- name: "Restart ntpd"
+  service:
+    name: ntpd
+    state: restarted
+  become: true
+  become_user: root
+  listen: "restart-ntpd"
+

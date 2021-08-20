@@ -9,6 +9,7 @@
     state: present
   become: true
   become_user: root
+  notify: "restart-ntpd"
 
 - name: "Set active NTP server list in {{ ntp_conf_filepath }}"
   ansible.builtin.blockinfile:
@@ -22,4 +23,5 @@
     state: present
   become: true
   become_user: root
+  notify: "restart-ntpd"
 
