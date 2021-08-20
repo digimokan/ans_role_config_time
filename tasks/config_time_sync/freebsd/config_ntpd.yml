@@ -5,6 +5,7 @@
       ^.?pool 0.freebsd.pool.ntp.org(.*)$
     line: >-
       #pool 0.freebsd.pool.ntp.org\1
+    backrefs: yes
     state: present
   become: true
   become_user: root
