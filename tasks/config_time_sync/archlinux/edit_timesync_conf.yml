@@ -5,7 +5,7 @@
       ^\[Time\]$
     block: "{{ setting_line }}"
     marker: "# {mark} ANSIBLE MANAGED BLOCK: {{ description }}"
-    create: no
+    create: false
     state: present
   become: true
   become_user: root

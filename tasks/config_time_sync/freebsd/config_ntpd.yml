@@ -5,7 +5,7 @@
       ^.?pool 0.freebsd.pool.ntp.org(.*)$
     line: >-
       #pool 0.freebsd.pool.ntp.org\1
-    backrefs: yes
+    backrefs: true
     state: present
   become: true
   become_user: root
@@ -19,7 +19,7 @@
       ^.?pool 0.freebsd.pool.ntp.org.*$
     block: "{{ primary_ntp_servers | map('regex_replace', '^(.*)$', 'pool \\1 iburst') | join('\n') }}"
     marker: "# {mark} ANSIBLE MANAGED BLOCK: ntp server list"
-    create: no
+    create: false
     state: present
   become: true
   become_user: root
