@@ -1,27 +1,22 @@
-- name: "Comment out default FreeBSD NTP pool setting in {{ ntp_conf_filepath }}"
-  ansible.builtin.lineinfile:
-    path: "{{ ntp_conf_filepath }}"
-    regexp: >-
-      ^.?pool 0.freebsd.pool.ntp.org(.*)$
-    line: >-
-      #pool 0.freebsd.pool.ntp.org\1
-    backrefs: true
+- name: "Enable ntpd service to start at boot: {{ enable_option }}"
+  community.general.sysrc:
+    path: "{{ rc_conf_filepath }}"
+    name: ntpd_enable
+    value: "{{ enable_option }}"
     state: present
+  vars:
+    enable_option: "{{ 'YES' if enable_continuous_sync_to_ntp_servers else 'NO' }}"
   become: true
   become_user: root
-  notify: "restart-ntpd"
 
-- name: "Set active NTP server list in {{ ntp_conf_filepath }}"
-  ansible.builtin.blockinfile:
-    # NOTE: iburst option enables faster initial sync
-    path: "{{ ntp_conf_filepath }}"
-    insertafter: >-
-      ^.?pool 0.freebsd.pool.ntp.org.*$
-    block: "{{ primary_ntp_servers | map('regex_replace', '^(.*)$', 'pool \\1 iburst') | join('\n') }}"
-    marker: "# {mark} ANSIBLE MANAGED BLOCK: ntp server list"
-    create: false
+- name: "Set ntpd service for initial, immediate force-time-sync at boot: {{ enable_option }}"
+  community.general.sysrc:
+    path: "{{ rc_conf_filepath }}"
+    name: ntpd_sync_on_start
+    value: "{{ enable_option }}"
     state: present
+  vars:
+    enable_option: "{{ 'YES' if enable_continuous_sync_to_ntp_servers else 'NO' }}"
   become: true
   become_user: root
-  notify: "restart-ntpd"
 
