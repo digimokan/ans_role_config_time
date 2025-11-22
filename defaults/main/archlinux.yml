@@ -1,8 +1,8 @@
-# config file for NTP server list (if enable_continuous_sync_to_ntp_servers is enabled)
-timesyncd_conf_filepath: "/etc/systemd/timesyncd.conf.d/ansible.conf"
+# config file for NTP server list (if cfg_time_enable_continuous_sync_to_ntp_servers is enabled)
+cfg_time_linux_timesyncd_conf_filepath: "/etc/systemd/timesyncd.conf.d/ansible.conf"
 
-# fallback NTP servers (if enable_continuous_sync_to_ntp_servers enabled)
-fallback_ntp_servers:
+# fallback NTP servers (if cfg_time_enable_continuous_sync_to_ntp_servers enabled)
+cfg_time_linux_timesyncd_fallback_ntp_servers:
   - "0.arch.pool.ntp.org"
   - "1.arch.pool.ntp.org"
   - "2.arch.pool.ntp.org"

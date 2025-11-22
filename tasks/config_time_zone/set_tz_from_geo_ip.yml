@@ -2,7 +2,7 @@
 #
 - name: "Send GET request to internet geo-IP API to retrieve tz string"
   ansible.builtin.uri:
-    url: "{{ geo_ip_uri }}"
+    url: "{{ cfg_time_geo_ip_uri }}"
     return_content: true
   register: geo_ip_tz
 

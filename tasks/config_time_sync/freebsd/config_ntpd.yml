@@ -1,22 +1,22 @@
 - name: "Enable ntpd service to start at boot: {{ enable_option }}"
   community.general.sysrc:
-    path: "{{ rc_conf_filepath }}"
+    path: "{{ cfg_time_rc_conf_filepath }}"
     name: ntpd_enable
     value: "{{ enable_option }}"
     state: present
   vars:
-    enable_option: "{{ 'YES' if enable_continuous_sync_to_ntp_servers else 'NO' }}"
+    enable_option: "{{ 'YES' if cfg_time_enable_continuous_sync_to_ntp_servers else 'NO' }}"
   become: true
   become_user: root
 
 - name: "Set ntpd service for initial, immediate force-time-sync at boot: {{ enable_option }}"
   community.general.sysrc:
-    path: "{{ rc_conf_filepath }}"
+    path: "{{ cfg_time_rc_conf_filepath }}"
     name: ntpd_sync_on_start
     value: "{{ enable_option }}"
     state: present
   vars:
-    enable_option: "{{ 'YES' if enable_continuous_sync_to_ntp_servers else 'NO' }}"
+    enable_option: "{{ 'YES' if cfg_time_enable_continuous_sync_to_ntp_servers else 'NO' }}"
   become: true
   become_user: root
 

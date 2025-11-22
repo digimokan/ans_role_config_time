@@ -3,7 +3,7 @@
 
 - name: "Enable continuous system time sync"
   ansible.builtin.include_tasks: config_time_sync/main.yml
-  when: enable_continuous_sync_to_ntp_servers
+  when: cfg_time_enable_continuous_sync_to_ntp_servers
 
 - name: "Set time zone"
   ansible.builtin.include_tasks: config_time_zone/main.yml

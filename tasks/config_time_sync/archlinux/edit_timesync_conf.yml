@@ -1,6 +1,6 @@
 - name: "Edit systemd timesyncd.conf setting: {{ description }}"
   ansible.builtin.blockinfile:
-    path: "{{ timesyncd_conf_filepath }}"
+    path: "{{ cfg_time_linux_timesyncd_conf_filepath }}"
     insertafter: >-
       ^\[Time\]$
     block: "{{ setting_line }}"

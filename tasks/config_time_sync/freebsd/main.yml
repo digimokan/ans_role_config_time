@@ -3,5 +3,5 @@
 
 - name: "Configure NTP time servers"
   ansible.builtin.include_tasks: config_time_servers.yml
-  when: enable_continuous_sync_to_ntp_servers
+  when: cfg_time_enable_continuous_sync_to_ntp_servers
 

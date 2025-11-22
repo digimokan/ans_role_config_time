@@ -1,6 +1,6 @@
 - name: "Configure timesyncd settings"
   ansible.builtin.include_tasks: config_timesyncd.yml
-  when: enable_continuous_sync_to_ntp_servers
+  when: cfg_time_enable_continuous_sync_to_ntp_servers
 
 - name: "Start systemd-timesyncd, and enable it to start at boot"
   ansible.builtin.service:
@@ -9,7 +9,7 @@
     enabled: true
   become: true
   become_user: root
-  when: enable_continuous_sync_to_ntp_servers
+  when: cfg_time_enable_continuous_sync_to_ntp_servers
 
 - name: "Stop systemd-timesyncd, and do not start it at boot"
   ansible.builtin.service:
@@ -18,5 +18,5 @@
     enabled: false
   become: true
   become_user: root
-  when: not enable_continuous_sync_to_ntp_servers
+  when: not cfg_time_enable_continuous_sync_to_ntp_servers
 

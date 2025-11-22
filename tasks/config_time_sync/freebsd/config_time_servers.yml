@@ -1,6 +1,6 @@
-- name: "Comment out default FreeBSD NTP pool setting in {{ ntp_conf_filepath }}"
+- name: "Comment out default FreeBSD NTP pool setting in {{ cfg_time_freebsd_ntp_conf_filepath }}"
   ansible.builtin.lineinfile:
-    path: "{{ ntp_conf_filepath }}"
+    path: "{{ cfg_time_freebsd_ntp_conf_filepath }}"
     regexp: >-
       ^.?pool 0.freebsd.pool.ntp.org(.*)$
     line: >-
@@ -11,13 +11,13 @@
   become_user: root
   notify: "restart-ntpd"
 
-- name: "Set active NTP server list in {{ ntp_conf_filepath }}"
+- name: "Set active NTP server list in {{ cfg_time_freebsd_ntp_conf_filepath }}"
   ansible.builtin.blockinfile:
     # NOTE: iburst option enables faster initial sync
-    path: "{{ ntp_conf_filepath }}"
+    path: "{{ cfg_time_freebsd_ntp_conf_filepath }}"
     insertafter: >-
       ^.?pool 0.freebsd.pool.ntp.org.*$
-    block: "{{ primary_ntp_servers | map('regex_replace', '^(.*)$', 'pool \\1 iburst') | join('\n') }}"
+    block: "{{ cfg_time_primary_ntp_servers | map('regex_replace', '^(.*)$', 'pool \\1 iburst') | join('\n') }}"
     marker: "# {mark} ANSIBLE MANAGED BLOCK: ntp server list"
     create: false
     state: present
