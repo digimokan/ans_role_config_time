@@ -1,6 +1,0 @@
-- name: "Set the system hardware-clock to UTC"
-  community.general.timezone:
-    hwclock: "UTC"
-  become: true
-  become_user: root
-

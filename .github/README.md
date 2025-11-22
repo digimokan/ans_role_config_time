@@ -16,8 +16,6 @@ Ansible role to configure system clock, time, and time zone.
 
 ## Purpose
 
-* Set system [_hardware clock_](https://wiki.archlinux.org/index.php/System_time#Hardware_clock)
-  to UTC.
 * Optionally, enable continuous system time synchronization via
   [_systemd timesyncd_](https://wiki.archlinux.org/index.php/Systemd-timesyncd#Configuration)
   and [_systemd timedatectl_](https://wiki.archlinux.org/index.php/Systemd-timesyncd#Usage).
@@ -25,6 +23,7 @@ Ansible role to configure system clock, time, and time zone.
 
 ## Supported Operating Systems
 
+* Ubuntu
 * Arch Linux
 * FreeBSD
 
@@ -63,9 +62,9 @@ Ansible role to configure system clock, time, and time zone.
 
 ## Role Options
 
-See the role `defaults` file, for overridable vars:
+Vars with default values, which can be overridden in the playbook:
 
-  * [defaults](../defaults/main/)
+  * [overridable](../defaults/main/overridable/)
 
 ## Contributing
 

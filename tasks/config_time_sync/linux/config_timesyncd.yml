@@ -13,7 +13,7 @@
 - name: "Create initial timesynd config file '{{ cfg_time_linux_timesyncd_conf_filepath }}'"
   ansible.builtin.template:
     dest: "{{ cfg_time_linux_timesyncd_conf_filepath }}"
-    src: "archlinux/timesyncd.j2"
+    src: "timesyncd.j2"
     owner: 'root'
     group: 'root'
     mode: '644'
